@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Mobile-science-calculator</string>
+    <string name="matrix">Matrix</string>
+    <string name="polynomial">Polynomial</string>
+</resources>

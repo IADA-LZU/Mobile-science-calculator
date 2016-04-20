@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="color_actionbar">#263649</color>
+    <color name="black">#000000</color>
+    <color name="tab_color">#ff5a82b3</color>
+    <color name="button_gery">#dad3c4</color>
+    <color name="white">#FFFFFF</color>
+
+    <!-- 蓝色 -->
+    <color name="blue">#316e9b</color>
+    
+    <color name="half_transparent">#80000000</color>
+
+
+</resources>
