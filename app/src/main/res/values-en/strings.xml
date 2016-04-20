@@ -3,4 +3,13 @@
     <string name="app_name">Mobile-science-calculator</string>
     <string name="matrix">Matrix</string>
     <string name="polynomial">Polynomial</string>
+    <string name="help">help</string>
+    <string name="poly_fun1">solving equation</string>
+    <string name="poly_fun2">regression analysis</string>
+    <string name="poly_input_hint">Type equations here</string>
+    <string name="matrix_fun1">transposition</string>
+    <string name="matrix_fun2">LUdcmp</string>
+    <string name="matrix_fun3">det</string>
+    <string name="matrix_fun4">inverse</string>
+    <string name="matrix_fun5">solving equations</string>
 </resources>

@@ -39,5 +39,21 @@
             android:textStyle="bold"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:id="@+id/id_tab_help"
+        android:layout_width="0dp"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/help_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/help"
+            android:textStyle="bold"/>
+    </LinearLayout>
 
 </LinearLayout>

@@ -12,9 +12,13 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.webkit.WebView;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import org.w3c.dom.Text;
 
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
@@ -24,10 +28,15 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     private LinearLayout mTabMatrix;
     private LinearLayout mTabPoly;
+    private LinearLayout mTabHelp;
 
     private TextView MatrixText;
     private TextView PolyText;
+    private TextView HelpText;
 
+    ClientSocket socket;    // Socket instance
+
+    long requetsCount;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +53,12 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private void initEvent() {
         mTabMatrix.setOnClickListener(this);
         mTabPoly.setOnClickListener(this);
+        mTabHelp.setOnClickListener(this);
+
+        socket = new ClientSocket(300);
+        requetsCount = 0;
+        PolyFun.activity = this;
+        MatrixFun.activity = this;
     }
 
     private void initView() {
@@ -51,17 +66,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
         mTabMatrix = (LinearLayout) findViewById(R.id.id_tab_matrix);
         mTabPoly = (LinearLayout) findViewById(R.id.id_tab_polynomial);
+        mTabHelp = (LinearLayout) findViewById(R.id.id_tab_help);
 
         MatrixText = (TextView) findViewById(R.id.matrix_text);
         PolyText = (TextView) findViewById(R.id.polynomial_text);
+        HelpText = (TextView) findViewById(R.id.help_text);
 
         mFragments = new ArrayList<Fragment>();
         Fragment mTab01 = new MatrixFragment();
         Fragment mTab02 = new PolyFragment();
+        Fragment mTab03 = new HelpFragment();
 
         mFragments.add(mTab01);
         mFragments.add(mTab02);
-
+        mFragments.add(mTab03);
 
         mAdapter = new FragmentPagerAdapter(getSupportFragmentManager()) {
 
@@ -108,15 +126,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             case R.id.id_tab_polynomial:
                 setSelect(1);
                 break;
-
+            case R.id.id_tab_help:
+                setSelect(2);
+                break;
+            case R.id.btn_poly_fun1:
+                PolyFun.fun1();
+                break;
             default:
                 break;
         }
     }
 
     private void setSelect(int i) {
-        setTab(i);
         mViewPager.setCurrentItem(i);
+        setTab(i);
     }
 
     private void setTab(int i)
@@ -131,6 +154,11 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
                 break;
             case 1:
                 PolyText.setTextColor(this.getResources().getColor(R.color.blue));
+                findViewById(R.id.btn_poly_fun1).setOnClickListener(this);
+                break;
+            case 2:
+                HelpText.setTextColor(this.getResources().getColor(R.color.blue));
+                ((WebView) findViewById(R.id.wv_help)).loadUrl("file:///android_asset/help.html");
                 break;
 
         }
@@ -142,6 +170,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
     private void resetImgs() {
         MatrixText.setTextColor(this.getResources().getColor(R.color.half_transparent));
         PolyText.setTextColor(this.getResources().getColor(R.color.half_transparent));
+        HelpText.setTextColor(this.getResources().getColor(R.color.half_transparent));
     }
 
 }

@@ -2,4 +2,13 @@
     <string name="app_name">移动科学计算器</string>
     <string name="matrix">矩阵</string>
     <string name="polynomial">多项式</string>
+    <string name="help">帮助</string>
+    <string name="poly_fun1">解方程</string>
+    <string name="poly_fun2">回归分析</string>
+    <string name="poly_input_hint">在此输入方程</string>
+    <string name="matrix_fun1">转置</string>
+    <string name="matrix_fun2">LU分解</string>
+    <string name="matrix_fun3">行列式的值</string>
+    <string name="matrix_fun4">矩阵的逆</string>
+    <string name="matrix_fun5">解方程组</string>
 </resources>
