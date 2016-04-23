@@ -11,14 +11,11 @@ import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.webkit.WebView;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 
 public class MainActivity extends FragmentActivity implements OnClickListener {
@@ -47,7 +44,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         initView();
         initEvent();
 
-        setSelect(0);
+        setSelect(2);
     }
 
     private void initEvent() {
@@ -55,7 +52,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         mTabPoly.setOnClickListener(this);
         mTabHelp.setOnClickListener(this);
 
-        socket = new ClientSocket(300);
+        socket = new ClientSocket();
         requetsCount = 0;
         PolyFun.activity = this;
         MatrixFun.activity = this;
@@ -89,9 +86,8 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             }
 
             @Override
-            public Fragment getItem(int arg0) {
-                return mFragments.get(arg0);
-            }
+            public Fragment getItem(int arg0) { return mFragments.get(arg0); }
+
         };
         mViewPager.setAdapter(mAdapter);
 
@@ -132,6 +128,24 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
             case R.id.btn_poly_fun1:
                 PolyFun.fun1();
                 break;
+            case R.id.btn_poly_fun2:
+                PolyFun.fun2();
+                break;
+            case R.id.btn_matrix_fun1:
+                MatrixFun.fun1();
+                break;
+            case R.id.btn_matrix_fun2:
+                MatrixFun.fun2();
+                break;
+            case R.id.btn_matrix_fun3:
+                MatrixFun.fun3();
+                break;
+            case R.id.btn_matrix_fun4:
+                MatrixFun.fun4();
+                break;
+            case R.id.btn_matrix_fun5:
+                MatrixFun.fun5();
+                break;
             default:
                 break;
         }
@@ -139,7 +153,7 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
 
     private void setSelect(int i) {
         mViewPager.setCurrentItem(i);
-        setTab(i);
+        //setTab(i);
     }
 
     private void setTab(int i)
@@ -150,15 +164,20 @@ public class MainActivity extends FragmentActivity implements OnClickListener {
         switch (i)
         {
             case 0:
-                MatrixText.setTextColor(this.getResources().getColor(R.color.blue));
+                MatrixText.setTextColor(this.getResources().getColor(R.color.black));
+                findViewById(R.id.btn_matrix_fun1).setOnClickListener(this);
+                findViewById(R.id.btn_matrix_fun2).setOnClickListener(this);
+                findViewById(R.id.btn_matrix_fun3).setOnClickListener(this);
+                findViewById(R.id.btn_matrix_fun4).setOnClickListener(this);
+                findViewById(R.id.btn_matrix_fun5).setOnClickListener(this);
                 break;
             case 1:
-                PolyText.setTextColor(this.getResources().getColor(R.color.blue));
+                PolyText.setTextColor(this.getResources().getColor(R.color.black));
                 findViewById(R.id.btn_poly_fun1).setOnClickListener(this);
+                findViewById(R.id.btn_poly_fun2).setOnClickListener(this);
                 break;
             case 2:
-                HelpText.setTextColor(this.getResources().getColor(R.color.blue));
-                ((WebView) findViewById(R.id.wv_help)).loadUrl("file:///android_asset/help.html");
+                HelpText.setTextColor(this.getResources().getColor(R.color.black));
                 break;
 
         }

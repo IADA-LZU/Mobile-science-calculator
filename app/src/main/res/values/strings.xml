@@ -11,4 +11,5 @@
     <string name="matrix_fun3">行列式的值</string>
     <string name="matrix_fun4">矩阵的逆</string>
     <string name="matrix_fun5">解方程组</string>
+    <string name="matrix_in_hint">在此输入矩阵</string>
 </resources>

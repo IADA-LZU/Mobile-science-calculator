@@ -11,7 +11,7 @@ import java.net.Socket;
 public class ClientSocket {
 
 
-    private static final String addr = "219.246.65.134";
+    private static final String addr = "192.168.1.100";//"219.246.65.134";
     private static final int port = 6666;
 
     private Thread mainThread;

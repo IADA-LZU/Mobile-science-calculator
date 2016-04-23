@@ -23,7 +23,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:id="@+id/et_matrix_in"
-                    android:inputType="textMultiLine" />
+                    android:inputType="textMultiLine"
+                    android:hint="@string/matrix_in_hint" />
             </FrameLayout>
 
             <TableLayout
@@ -80,7 +81,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="@string/matrix_fun5"
-                        android:id="@+id/btn_matrxi_fun5" />
+                        android:id="@+id/btn_matrix_fun5" />
                 </TableRow>
             </TableLayout>
 

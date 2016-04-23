@@ -12,4 +12,5 @@
     <string name="matrix_fun3">det</string>
     <string name="matrix_fun4">inverse</string>
     <string name="matrix_fun5">solving equations</string>
+    <string name="matrix_in_hint">Type matrix here</string>
 </resources>
